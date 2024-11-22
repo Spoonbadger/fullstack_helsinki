@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for phonebook-backend-lingering-snowflake-4984 on 2024-10-10T16:05:57+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'phonebook-backend-lingering-snowflake-4984'
+primary_region = 'lhr'
+
+[build]
+
+[env]
+  PORT = "3002"
+
+[http_service]
+  internal_port = 3002
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
